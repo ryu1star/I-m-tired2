@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Dreams</title>
+    <style>
+        :root {
+            --wall-color: #2c3e50;
+            --bed-color: #ecf0f1;
+            --blanket-color: #ff7675;
+            --skin-tone: #ffeaa7;
+            --hair-color: #2d3436;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--wall-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .room {
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+
+        /* The Window */
+        .window {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            width: 80px;
+            height: 100px;
+            background: #576574;
+            border: 4px solid #1e272e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .moon {
+            width: 30px;
+            height: 30px;
+            background: #f1c40f;
+            border-radius: 50%;
+            box-shadow: 5px 5px 0px 0px #f39c12 inset;
+        }
+
+        /* The Bed */
+        .bed {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 120px;
+            background: #bdc3c7;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .pillow {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 70px;
+            height: 40px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .blanket {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 230px;
+            height: 100px;
+            background: var(--blanket-color);
+            border-radius: 15px 5px 0 0;
+            z-index: 2;
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        /* The Sleeping Girl */
+        .girl {
+            position: absolute;
+            top: -10px;
+            left: 40px;
+            z-index: 1;
+        }
+
+        .hair {
+            width: 80px;
+            height: 50px;
+            background: var(--hair-color);
+            border-radius: 40px 40px 10px 10px;
+        }
+
+        .face {
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            width: 50px;
+            height: 40px;
+            background: var(--skin-tone);
+            border-radius: 50%;
+        }
+
+        /* Closed eyes */
+        .face::before, .face::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 8px;
+            height: 2px;
+            background: #636e72;
+        }
+        .face::before { left: 10px; }
+        .face::after { right: 10px; }
+
+        /* Floating 'Z's animation */
+        .zs {
+            position: absolute;
+            top: -40px;
+            left: 80px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            opacity: 0;
+            animation: sleep-text 3s linear infinite;
+        }
+
+        .z2 { animation-delay: 1s; }
+        .z3 { animation-delay: 2s; }
+
+        @keyframes breathe {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.05); }
+        }
+
+        @keyframes sleep-text {
+            0% { transform: translate(0, 0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(20px, -40px); opacity: 0; }
+        }
+
+        .caption {
+            position: absolute;
+            bottom: -60px;
+            width: 100%;
+            text-align: center;
+            color: #dfe6e9;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="room">
+        <div class="window">
+            <div class="moon"></div>
+        </div>
+
+        <div class="bed">
+            <div class="pillow"></div>
+            <div class="girl">
+                <div class="hair"></div>
+                <div class="face"></div>
+            </div>
+            <div class="blanket"></div>
+            
+            <div class="zs">Z</div>
+            <div class="zs z2">Z</div>
+            <div class="zs z3">Z</div>
+        </div>
+
+        <div class="caption">
+            <h2>Shhh... she's dreaming.</h2>
+        </div>
+    </div>
+
+</body>
+</html>
